@@ -1,7 +1,8 @@
 from chunki import read_chunk, additional_chunks, main_chunks
 from transformata import transform
 
-name = 'MgławicaOriona.png'
+name = 'test/hist2.png'
+# name = 'Floral-PNG-File.png'
 
 
 with open(name, 'rb') as f:
