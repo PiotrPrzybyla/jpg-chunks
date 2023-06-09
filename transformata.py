@@ -70,6 +70,7 @@ def display_spectrum_and_phase(image_path):
     plt.title('Phase')
     plt.show()
 
+
 def verify_transform(image_path):
     img = Image.open(image_path).convert('L')
     img_data = np.asarray(img)
@@ -92,12 +93,8 @@ def verify_transform(image_path):
     # Verify that the maximum difference is below a threshold (for example, 1e-6)
     assert np.max(difference) < 1e-6, "Transform and inverse transform did not recover the original image"
 
-    # Compute power spectrum and phase
-    spectrum = np.abs(fft_shifted)
-    phase = np.angle(fft_shifted)
-
-    # Verify power spectrum and phase against expected values
     # ...
+
 
 def transform(name):
     # display_spectrum(name)

@@ -68,10 +68,8 @@ def phys(chunk_data):
 
 
 def plte(chunk_data):
-    # Zinterpretuj dane chunka jako paletę kolorów
     palette = [(chunk_data[i], chunk_data[i + 1], chunk_data[i + 2]) for i in range(0, len(chunk_data), 3)]
 
-    # Wydrukuj paletę kolorów
     print("Palette:", palette)
     colors = [(r / 255, g / 255, b / 255) for r, g, b in palette]
     return colors
@@ -129,7 +127,7 @@ def read_png_chunks(file_path):
             if chunk_type is None:
                 break
             if chunk_type == 'iCCP':
-                iccp(chunk_data)
+                iccp(chunk_data, file_path)
             elif chunk_type == 'bKGD':
                 bkgd(chunk_data)
             elif chunk_type == 'pHYs':
@@ -141,7 +139,6 @@ def read_png_chunks(file_path):
                 showHistogram(values, colors)
             elif chunk_type == 'tIME':
                 timeChunk(chunk_data)
-
 
 
 def get_png_info(image_path):
@@ -196,7 +193,6 @@ def additional_chunks(name):
     lista = dane.split(",")
     lista = [int(element) for element in lista]
     wartosci = list(map(chunki.get, lista))
-
     if 0 in lista:
         wartosci = []
     print(wartosci)

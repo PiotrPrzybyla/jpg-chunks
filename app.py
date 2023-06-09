@@ -1,8 +1,8 @@
 from chunki import read_chunk, additional_chunks, main_chunks
 from transformata import transform
 
-name = 'test/hist2.png'
-# name = 'Floral-PNG-File.png'
+name = 'test/paint_kwadrat.png'
+# name = 'MgławicaOriona.png'
 
 
 with open(name, 'rb') as f:
@@ -20,6 +20,5 @@ with open(name, 'rb') as f:
                 print("")
                 transform(name)
                 additional_chunks(name)
-
             elif chunk_type == 'IEND':
                 break
